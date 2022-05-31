@@ -1,8 +1,8 @@
 export const flights = [
   {
     "icao24": "a575a2",
-    "firstseen": "2018-05-21 14:16:37",
-    "lastseen": "2018-05-21 14:33:28",
+    "firstseen": "2017-04-21 14:16:37",
+    "lastseen": "2017-04-21 14:33:28",
     "duration": "17",
     "callsign": "N4508X",
     "departure": [
@@ -48,8 +48,8 @@ export const flights = [
   },
   {
     "icao24": "a4b420",
-    "firstseen": "2018-05-21 20:58:52",
-    "lastseen": "2018-05-21 22:37:28",
+    "firstseen": "2018-04-15 20:58:52",
+    "lastseen": "2018-04-15 22:37:28",
     "duration": "99",
     "callsign": "ASA453",
     "departure": [
@@ -95,8 +95,8 @@ export const flights = [
   },
   {
     "icao24": "a4b420",
-    "firstseen": "2018-05-21 17:33:42",
-    "lastseen": "2018-05-21 18:59:52",
+    "firstseen": "2019-06-24 17:33:42",
+    "lastseen": "2019-06-24 18:59:52",
     "duration": "86",
     "callsign": "ASA428",
     "departure": [
@@ -142,8 +142,8 @@ export const flights = [
   },
   {
     "icao24": "a4b420",
-    "firstseen": "2018-05-21 11:01:04",
-    "lastseen": "2018-05-21 16:08:37",
+    "firstseen": "2018-02-11 11:01:04",
+    "lastseen": "2018-02-11 16:08:37",
     "duration": "308",
     "callsign": "ASA859",
     "departure": [
@@ -189,8 +189,8 @@ export const flights = [
   },
   {
     "icao24": "a4b420",
-    "firstseen": "2018-05-20 23:13:58",
-    "lastseen": "2018-05-21 03:47:20",
+    "firstseen": "2020-03-20 23:13:58",
+    "lastseen": "2020-03-21 03:47:20",
     "duration": "273",
     "callsign": "ASA956",
     "departure": [
@@ -236,8 +236,8 @@ export const flights = [
   },
   {
     "icao24": "a4efe4",
-    "firstseen": "2018-05-21 19:04:31",
-    "lastseen": "2018-05-21 20:34:09",
+    "firstseen": "2020-05-21 19:04:31",
+    "lastseen": "2020-05-21 20:34:09",
     "duration": "90",
     "callsign": "UAL1074",
     "departure": [
@@ -283,8 +283,8 @@ export const flights = [
   },
   {
     "icao24": "a4efe4",
-    "firstseen": "2018-05-21 16:07:07",
-    "lastseen": "2018-05-21 17:05:43",
+    "firstseen": "2016-10-15 16:07:07",
+    "lastseen": "2016-10-15 17:05:43",
     "duration": "59",
     "callsign": "UAL1294",
     "departure": [
@@ -330,8 +330,8 @@ export const flights = [
   },
   {
     "icao24": "a4efe4",
-    "firstseen": "2018-05-21 13:31:35",
-    "lastseen": "2018-05-21 13:57:14",
+    "firstseen": "2021-02-21 13:31:35",
+    "lastseen": "2021-02-21 13:57:14",
     "duration": "26",
     "callsign": "UAL1991",
     "departure": [
@@ -424,8 +424,8 @@ export const flights = [
   },
   {
     "icao24": "a4efe4",
-    "firstseen": "2018-05-21 02:28:11",
-    "lastseen": "2018-05-21 03:37:36",
+    "firstseen": "2021-09-21 02:28:11",
+    "lastseen": "2021-09-21 03:37:36",
     "duration": "69",
     "callsign": "UAL736",
     "departure": [
@@ -612,8 +612,8 @@ export const flights = [
   },
   {
     "icao24": "a87cbb",
-    "firstseen": "2018-05-21 02:04:12",
-    "lastseen": "2018-05-21 02:45:12",
+    "firstseen": "2021-08-21 02:04:12",
+    "lastseen": "2021-08-21 02:45:12",
     "duration": "41",
     "callsign": "NKS680",
     "departure": [
@@ -659,8 +659,8 @@ export const flights = [
   },
   {
     "icao24": "aa4414",
-    "firstseen": "2018-05-21 21:09:34",
-    "lastseen": "2018-05-21 21:27:44",
+    "firstseen": "2019-05-21 21:09:34",
+    "lastseen": "2019-05-21 21:27:44",
     "duration": "18",
     "callsign": "",
     "departure": [
@@ -1082,8 +1082,8 @@ export const flights = [
   },
   {
     "icao24": "ac9703",
-    "firstseen": "2018-05-21 21:00:03",
-    "lastseen": "2018-05-21 22:15:18",
+    "firstseen": "2022-01-21 21:00:03",
+    "lastseen": "2022-01-21 22:15:18",
     "duration": "75",
     "callsign": "DAL1555",
     "departure": [

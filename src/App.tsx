@@ -1,27 +1,28 @@
-import React, {ReactElement, useEffect, useState} from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 
-import {airportsData} from "@/ressources/airports"
+import { airportsData } from '@/ressources/airports';
 
-import {Map} from '@/components/Map/Map'
+import { Map } from '@/components/Map/Map';
 
 import './App.css';
 
 export interface IAirport {
-    laltitude_decimal_degress: string;
-    longitude_decimal_degress: string;
-    airport_name: string
+    laltitude_decimal_degress : string;
+    longitude_decimal_degress : string;
+    airport_name : string,
+    ICAO_code : string
 }
 
-function App(): ReactElement {
-    const [airports, setAirports] = useState<Array<IAirport>>(airportsData)
+function App() : ReactElement {
+    const [airports, setAirports] = useState<Array<IAirport>>(airportsData);
 
     useEffect(() => {
-        setAirports(airportsData)
-    }, [])
+        setAirports(airportsData);
+    }, []);
 
     return (
         <div className="App">
-            <Map airports={airports}/>
+            <Map airports={ airports }/>
         </div>
     );
 }
