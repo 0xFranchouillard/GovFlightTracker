@@ -3,7 +3,7 @@ import { Slider } from 'antd';
 
 import styled from 'styled-components';
 import { marks } from '@/components/TimeLine/Marks';
-import airportPng from '@/ressources/airportIcons.webp';
+import airportPng from '@/ressources/airportIcons.png';
 
 export interface ITimeLine {
     callback : (str1 : string, str2 : string) => void;

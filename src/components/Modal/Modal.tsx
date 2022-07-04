@@ -2,14 +2,14 @@ import React, {FunctionComponent, memo, useEffect, useState} from 'react';
 import styled from "styled-components";
 import {Modal} from 'antd';
 
-import airportPng from '@/ressources/airportIcons.webp'
+import airportPng from '@/ressources/airportIcons.png'
 import airportDiapo1 from '@/ressources/airportDiapo1.jpg'
 import airportDiapo2 from '@/ressources/airportDiapo2.jpg'
 import airportDiapo3 from '@/ressources/airportDiapo3.jpg'
 import airportDiapo4 from '@/ressources/airportDiapo4.jpg'
 import airportDiapo5 from '@/ressources/airportDiapo5.jpg'
 import airportDiapo6 from '@/ressources/airportDiapo6.jpg'
-import airportDiapo7 from '@/ressources/airportDiapo7.webp'
+import airportDiapo7 from '@/ressources/airportDiapo7.png'
 
 interface IModalAirport {
     isVisible: boolean | undefined;

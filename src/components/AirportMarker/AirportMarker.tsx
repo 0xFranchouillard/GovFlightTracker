@@ -1,7 +1,7 @@
 import React, {FunctionComponent, memo} from 'react';
 import styled from 'styled-components';
 
-import airportPng from '@/ressources/airportIcons.webp'
+import airportPng from '@/ressources/airportIcons.png'
 
 interface IAirportMarker {
     airport: any;
