@@ -2,16 +2,16 @@ import React, {FunctionComponent, memo, useEffect, useState} from 'react';
 import styled from "styled-components";
 import {Modal} from 'antd';
 
-import airportPng from '@/ressources/airportIcons.jpg'
+import airportPng from '@/ressources/airportIcons.webp'
 import airportDiapo1 from '@/ressources/airportDiapo1.jpg'
 import airportDiapo2 from '@/ressources/airportDiapo2.jpg'
 import airportDiapo3 from '@/ressources/airportDiapo3.jpg'
 import airportDiapo4 from '@/ressources/airportDiapo4.jpg'
 import airportDiapo5 from '@/ressources/airportDiapo5.jpg'
 import airportDiapo6 from '@/ressources/airportDiapo6.jpg'
-import airportDiapo7 from '@/ressources/airportDiapo7.jpg'
+import airportDiapo7 from '@/ressources/airportDiapo7.webp'
 
-interface IModalAirport {
+interface IAirportModal {
     isVisible: boolean | undefined;
     onClose: () => void;
     airport: any
@@ -63,7 +63,7 @@ const airportDiapos: Array<string> = [
     airportDiapo7
 ]
 
-const ModalAirport: FunctionComponent<IModalAirport> = memo(({isVisible, onClose, airport}) => {
+const AirportModal: FunctionComponent<IAirportModal> = memo(({isVisible, onClose, airport}) => {
     const [airportImg, setAirportImg] = useState<string>()
 
     useEffect(() => {
@@ -91,4 +91,4 @@ const ModalAirport: FunctionComponent<IModalAirport> = memo(({isVisible, onClose
     );
 });
 
-export default ModalAirport;
+export default AirportModal;

@@ -1,12 +1,15 @@
 import React, { FunctionComponent, memo, useCallback, useEffect, useMemo, useState } from 'react';
 import GoogleMapReact from 'google-map-react';
+import { getCenter } from 'geolib';
 
 import { TimeLine } from '@/components/TimeLine/TimeLine';
-import ModalAirport from '@/components/ModalAirport/ModalAirport';
-import Marker from '@/components/Marker/Marker';
+import AirportModal from '@/components/AirportModal/AirportModal';
+import AirportMarker from '@/components/AirportMarker/AirportMarker';
 import { IAirport } from '@/App';
 import { myStyles, POLYLINE_OPTIONS } from './mapConfig';
 import { flights } from '@/ressources/flights';
+import FlightMarker from '@/components/FlightMarker/FlightMarker';
+import FlightModal from '@/components/FlightModal/FlightModal';
 
 const center = {
     lat : 48.969,
@@ -28,6 +31,7 @@ export const Map : FunctionComponent<IMap> = memo(({ airports }) => {
     const [activeAirport, setActiveAirport] = useState<any>(null);
     const [activeAirports, setActiveAirports] = useState<any>(null);
     const [activeFlights, setActiveFlights] = useState<any>(null);
+    const [activeFlight, setActiveFlight] = useState<any>(null);
     const [gMap, setGmap] = useState<any>();
     const [gMaps, setGmaps] = useState<any>();
     const polys : Array<any> = useMemo(() => [], []);
@@ -53,21 +57,31 @@ export const Map : FunctionComponent<IMap> = memo(({ airports }) => {
         polys.forEach((poly) => {
             poly.setVisible(false);
         });
-        setActiveAirports([])
+        setActiveAirports([]);
     }, [polys]);
 
     const handleOnChange = useCallback((map : any) => {
         setInfos(map);
     }, []);
 
-    const handleModalIsOpen = useCallback((airport : any) => {
+    const handleModalIsOpenAirport = useCallback((airport : any) => {
         setModalIsOpen(true);
         setActiveAirport(airport);
     }, []);
 
-    const handleModalClose = useCallback(() => {
+    const handleModalCloseAirport = useCallback(() => {
         setModalIsOpen(false);
         setActiveAirport(null);
+    }, []);
+
+    const handleModalIsOpenFlight = useCallback((flight : any) => {
+        setModalIsOpen(true);
+        setActiveFlight(flight);
+    }, []);
+
+    const handleModalCloseFlight = useCallback(() => {
+        setModalIsOpen(false);
+        setActiveFlight(null);
     }, []);
 
     const checkActivesFlights = useCallback((airports : any) : void => {
@@ -96,12 +110,14 @@ export const Map : FunctionComponent<IMap> = memo(({ airports }) => {
 
     const isRenderingAirportMarker = useCallback((airport : IAirport) : boolean => {
         let needRender = false;
+
         if (!activeAirports || activeAirports.length === 0)
-            return false;
+            return needRender;
 
         activeAirports.forEach((air : IAirport) => {
             if (air.ICAO_code === airport.ICAO_code) {
                 needRender = true;
+                return needRender;
             }
         });
 
@@ -118,16 +134,16 @@ export const Map : FunctionComponent<IMap> = memo(({ airports }) => {
             const canRender = (latCheck > -2.5 && latCheck < 2.5) && (longCheck > -2.5 && longCheck < 2.5) && zoom >= 8;
 
             return (canRender || isRenderingAirportMarker(airport)) &&
-                <Marker
+                <AirportMarker
                     key={ JSON.stringify(airport) }
                     airport={ airport }
-                    handleModalIsOpen={ handleModalIsOpen }
+                    handleModalIsOpen={ handleModalIsOpenAirport }
                     lat={ parseFloat(airport.laltitude_decimal_degress) }
                     lng={ parseFloat(airport.longitude_decimal_degress) }/>;
         });
-    }, [airports, infos, handleModalIsOpen, isRenderingAirportMarker]);
+    }, [airports, infos, handleModalIsOpenAirport, isRenderingAirportMarker]);
 
-    const handleTimeLine = useCallback(async (str1 : string, str2 : string) => {
+    const handleTimeLine = useCallback((str1 : string, str2 : string) => {
         const activeFlights = flights.filter((flight) => {
             const firstseen = (flight.firstseen.split(' ')[0]).split('-');
             const actualDateFlight = new Date(`${ firstseen[0] }-${ firstseen[1] }`).valueOf();
@@ -155,6 +171,27 @@ export const Map : FunctionComponent<IMap> = memo(({ airports }) => {
         handleTimeLine(str1, str2);
     }, [resetPolys, handleTimeLine]);
 
+    const renderFlightsMarker = useMemo(() => {
+        if (!activeFlights?.map)
+            return;
+        return activeFlights.map((flight : any, idx : number) => {
+            const center : any = getCenter([{
+                latitude : parseFloat(flight.departure[0].laltitude_decimal_degress),
+                longitude : parseFloat(flight.departure[0].longitude_decimal_degress)
+            }, {
+                latitude : parseFloat(flight.destination[0].laltitude_decimal_degress),
+                longitude : parseFloat(flight.destination[0].longitude_decimal_degress)
+            }]);
+            return (
+                <FlightMarker
+                    key={ JSON.stringify(flight) }
+                    flight={ flight }
+                    handleModalIsOpen={ handleModalIsOpenFlight }
+                    lat={ center?.latitude }
+                    lng={ center?.longitude }/>);
+        });
+    }, [activeFlights, handleModalIsOpenFlight]);
+
     useEffect(() => {
         checkActivesFlights(airports);
     }, [activeFlights, airports, checkActivesFlights]);
@@ -175,8 +212,11 @@ export const Map : FunctionComponent<IMap> = memo(({ airports }) => {
                 onGoogleApiLoaded={ ({ map, maps }) => handleMapLoad(map, maps) }
             >
                 { renderAirports }
+                { renderFlightsMarker }
             </GoogleMapReact>
-            <ModalAirport isVisible={ modalIsOpen } onClose={ handleModalClose } airport={ activeAirport }/>
+            <AirportModal isVisible={ modalIsOpen && activeAirport } onClose={ handleModalCloseAirport }
+                          airport={ activeAirport }/>
+            <FlightModal isVisible={ modalIsOpen && activeFlight} onClose={ handleModalCloseFlight } flight={activeFlight}/>
             <TimeLine callback={ callbackTimeLine }/>
         </div>
     );
