@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import airportPng from '@/ressources/airportIcons.png'
 
-interface IMarker {
+interface IAirportMarker {
     airport: any;
     lat: number;
     lng: number;
@@ -45,7 +45,7 @@ const AirportName = styled.p<IAirportName>`
   color: red;
 `;
 
-const Marker: FunctionComponent<IMarker> = memo(({airport, handleModalIsOpen}) => {
+const AirportMarker: FunctionComponent<IAirportMarker> = memo(({airport, handleModalIsOpen}) => {
     return (
         <div>
             <AirportName
@@ -59,4 +59,4 @@ const Marker: FunctionComponent<IMarker> = memo(({airport, handleModalIsOpen}) =
     );
 });
 
-export default Marker;
+export default AirportMarker;

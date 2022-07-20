@@ -377,8 +377,8 @@ export const flights = [
   },
   {
     "icao24": "a4efe4",
-    "firstseen": "2018-05-21 05:11:47",
-    "lastseen": "2018-05-21 06:17:53",
+    "firstseen": "2020-07-21 05:11:47",
+    "lastseen": "2020-07-21 06:17:53",
     "duration": "66",
     "callsign": "UAL1076",
     "departure": [
@@ -471,8 +471,8 @@ export const flights = [
   },
   {
     "icao24": "a8259b",
-    "firstseen": "2018-05-21 09:23:33",
-    "lastseen": "2018-05-21 16:15:55",
+    "firstseen": "2019-07-21 09:23:33",
+    "lastseen": "2019-07-21 16:15:55",
     "duration": "412",
     "callsign": "FDX5277",
     "departure": [
@@ -518,8 +518,8 @@ export const flights = [
   },
   {
     "icao24": "a87cbb",
-    "firstseen": "2018-05-21 11:27:11",
-    "lastseen": "2018-05-21 13:33:14",
+    "firstseen": "2018-03-21 11:27:11",
+    "lastseen": "2018-03-21 13:33:14",
     "duration": "126",
     "callsign": "NKS410",
     "departure": [
@@ -565,8 +565,8 @@ export const flights = [
   },
   {
     "icao24": "a87cbb",
-    "firstseen": "2018-05-21 03:57:03",
-    "lastseen": "2018-05-21 05:27:25",
+    "firstseen": "2019-09-21 03:57:03",
+    "lastseen": "2019-09-21 05:27:25",
     "duration": "90",
     "callsign": "NKS680",
     "departure": [
@@ -706,8 +706,8 @@ export const flights = [
   },
   {
     "icao24": "ab4732",
-    "firstseen": "2018-05-20 21:41:51",
-    "lastseen": "2018-05-21 00:11:50",
+    "firstseen": "2021-01-20 21:41:51",
+    "lastseen": "2021-01-21 00:11:50",
     "duration": "150",
     "callsign": "AAL2462",
     "departure": [
@@ -753,8 +753,8 @@ export const flights = [
   },
   {
     "icao24": "ab6316",
-    "firstseen": "2018-05-21 15:20:55",
-    "lastseen": "2018-05-21 16:25:57",
+    "firstseen": "2021-08-21 15:20:55",
+    "lastseen": "2021-08-21 16:25:57",
     "duration": "65",
     "callsign": "SWA1636",
     "departure": [
@@ -800,8 +800,8 @@ export const flights = [
   },
   {
     "icao24": "ab6316",
-    "firstseen": "2018-05-21 12:52:02",
-    "lastseen": "2018-05-21 14:05:29",
+    "firstseen": "2021-11-21 12:52:02",
+    "lastseen": "2021-11-21 14:05:29",
     "duration": "73",
     "callsign": "SWA1636",
     "departure": [
@@ -847,8 +847,8 @@ export const flights = [
   },
   {
     "icao24": "ab6316",
-    "firstseen": "2018-05-21 11:08:54",
-    "lastseen": "2018-05-21 11:48:20",
+    "firstseen": "2020-02-21 11:08:54",
+    "lastseen": "2020-02-21 11:48:20",
     "duration": "39",
     "callsign": "SWA1636",
     "departure": [
@@ -894,8 +894,8 @@ export const flights = [
   },
   {
     "icao24": "ab6316",
-    "firstseen": "2018-05-21 02:24:34",
-    "lastseen": "2018-05-21 04:17:38",
+    "firstseen": "2017-02-21 02:24:34",
+    "lastseen": "2017-02-21 04:17:38",
     "duration": "113",
     "callsign": "SWA6358",
     "departure": [
@@ -941,8 +941,8 @@ export const flights = [
   },
   {
     "icao24": "ac5cd7",
-    "firstseen": "2018-05-21 18:33:35",
-    "lastseen": "2018-05-21 21:58:35",
+    "firstseen": "2017-03-21 18:33:35",
+    "lastseen": "2017-03-21 21:58:35",
     "duration": "205",
     "callsign": "AAL1507",
     "departure": [
@@ -1035,8 +1035,8 @@ export const flights = [
   },
   {
     "icao24": "ac5cd7",
-    "firstseen": "2018-05-20 21:07:34",
-    "lastseen": "2018-05-21 00:01:53",
+    "firstseen": "2018-03-20 21:07:34",
+    "lastseen": "2018-03-21 00:01:53",
     "duration": "174",
     "callsign": "AAL925",
     "departure": [
@@ -1129,8 +1129,8 @@ export const flights = [
   },
   {
     "icao24": "ac9703",
-    "firstseen": "2018-05-21 18:12:04",
-    "lastseen": "2018-05-21 19:32:06",
+    "firstseen": "2018-01-21 18:12:04",
+    "lastseen": "2018-01-21 19:32:06",
     "duration": "80",
     "callsign": "DAL1476",
     "departure": [
@@ -1176,8 +1176,8 @@ export const flights = [
   },
   {
     "icao24": "abab67",
-    "firstseen": "2018-05-21 13:15:30",
-    "lastseen": "2018-05-21 17:24:17",
+    "firstseen": "2019-07-21 13:15:30",
+    "lastseen": "2019-07-21 17:24:17",
     "duration": "249",
     "callsign": "DAL1994",
     "departure": [
@@ -1223,8 +1223,8 @@ export const flights = [
   },
   {
     "icao24": "abab67",
-    "firstseen": "2018-05-20 23:47:46",
-    "lastseen": "2018-05-21 04:29:54",
+    "firstseen": "2017-08-20 23:47:46",
+    "lastseen": "2017-08-21 04:29:54",
     "duration": "282",
     "callsign": "DAL2435",
     "departure": [
@@ -1317,8 +1317,8 @@ export const flights = [
   },
   {
     "icao24": "ad6116",
-    "firstseen": "2018-05-21 03:14:30",
-    "lastseen": "2018-05-21 05:46:57",
+    "firstseen": "2019-04-21 03:14:30",
+    "lastseen": "2019-04-21 05:46:57",
     "duration": "152",
     "callsign": "AAL2293",
     "departure": [
@@ -1364,8 +1364,8 @@ export const flights = [
   },
   {
     "icao24": "ad7ab8",
-    "firstseen": "2018-05-21 11:27:06",
-    "lastseen": "2018-05-21 17:19:50",
+    "firstseen": "2018-12-21 11:27:06",
+    "lastseen": "2018-12-21 17:19:50",
     "duration": "353",
     "callsign": "JBU287",
     "departure": [
@@ -1411,8 +1411,8 @@ export const flights = [
   },
   {
     "icao24": "ad7ab8",
-    "firstseen": "2018-05-20 21:22:48",
-    "lastseen": "2018-05-21 02:11:28",
+    "firstseen": "2019-01-20 21:22:48",
+    "lastseen": "2019-01-21 02:11:28",
     "duration": "289",
     "callsign": "JBU620",
     "departure": [
@@ -1458,8 +1458,8 @@ export const flights = [
   },
   {
     "icao24": "acb5d2",
-    "firstseen": "2018-05-21 18:08:32",
-    "lastseen": "2018-05-21 21:43:03",
+    "firstseen": "2019-09-21 18:08:32",
+    "lastseen": "2019-09-21 21:43:03",
     "duration": "215",
     "callsign": "EJA918",
     "departure": [
@@ -1505,8 +1505,8 @@ export const flights = [
   },
   {
     "icao24": "acb5d2",
-    "firstseen": "2018-05-21 16:38:11",
-    "lastseen": "2018-05-21 16:53:28",
+    "firstseen": "2019-10-21 16:38:11",
+    "lastseen": "2019-10-21 16:53:28",
     "duration": "15",
     "callsign": "EJA918",
     "departure": [
@@ -1552,8 +1552,8 @@ export const flights = [
   },
   {
     "icao24": "adb0b4",
-    "firstseen": "2018-05-21 19:10:17",
-    "lastseen": "2018-05-21 23:47:50",
+    "firstseen": "2020-02-21 19:10:17",
+    "lastseen": "2020-02-21 23:47:50",
     "duration": "278",
     "callsign": "AAL439",
     "departure": [
@@ -1599,8 +1599,8 @@ export const flights = [
   },
   {
     "icao24": "adb0b4",
-    "firstseen": "2018-05-21 11:45:00",
-    "lastseen": "2018-05-21 16:39:22",
+    "firstseen": "2019-12-21 11:45:00",
+    "lastseen": "2019-12-21 16:39:22",
     "duration": "294",
     "callsign": "AAL473",
     "departure": [
@@ -2160,5 +2160,52 @@ export const flights = [
         "longitude_decimal_degress": "11.786"
       }
     ]
-  }
+  },
+  {
+    "icao24": "a8259b",
+    "firstseen": "2022-01-21 09:23:33",
+    "lastseen": "2022-01-21 16:15:55",
+    "duration": "412",
+    "callsign": "FDX5277",
+    "departure": [
+      {
+        "ICAO_code": "OMDB",
+        "IATA_code": "DXB",
+        "airport_name": "DUBAI INTERNATIONAL",
+        "city_town": "DUBAI",
+        "country": "UNITED ARAB EMIRATES",
+        "latitude_degrees": "025",
+        "latitude_minutes": "015",
+        "latitude_seconds": "017",
+        "latitude_direction": "N",
+        "longitude_degrees": "055",
+        "longitude_minutes": "021",
+        "longitude_seconds": "051",
+        "longitude_direction": "E",
+        "altitude": "00011",
+        "laltitude_decimal_degress": "25.255",
+        "longitude_decimal_degress": "55.364"
+      }
+    ],
+    "destination": [
+      {
+        "ICAO_code": "LFPG",
+        "IATA_code": "CDG",
+        "airport_name": "CHARLES DE GAULLE",
+        "city_town": "PARIS",
+        "country": "FRANCE",
+        "latitude_degrees": "049",
+        "latitude_minutes": "000",
+        "latitude_seconds": "046",
+        "latitude_direction": "N",
+        "longitude_degrees": "002",
+        "longitude_minutes": "033",
+        "longitude_seconds": "000",
+        "longitude_direction": "E",
+        "altitude": "00120",
+        "laltitude_decimal_degress": "49.013",
+        "longitude_decimal_degress": "2.550"
+      }
+    ]
+  },
 ]
