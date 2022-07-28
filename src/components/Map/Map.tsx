@@ -1,6 +1,7 @@
 import React, { FunctionComponent, memo, useCallback, useEffect, useMemo, useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import { getCenter } from 'geolib';
+import Select from 'react-select';
 
 import { TimeLine } from '@/components/TimeLine/TimeLine';
 import AirportModal from '@/components/AirportModal/AirportModal';
@@ -35,6 +36,9 @@ export const Map : FunctionComponent<IMap> = memo(({ airports }) => {
     const [gMap, setGmap] = useState<any>();
     const [gMaps, setGmaps] = useState<any>();
     const polys : Array<any> = useMemo(() => [], []);
+    const [countryOptions, setCountryOptions] = useState<Array<any>>();
+    const [filteredFlights, setfilteredFlights] = useState<any>(null);
+    const [saveTimeline, setSaveTimeline] = useState<any>();
 
     const handleMapLoad = useCallback((map : any, maps : any) => {
         setGmap(map);
@@ -86,13 +90,15 @@ export const Map : FunctionComponent<IMap> = memo(({ airports }) => {
 
     const checkActivesFlights = useCallback((airports : any) : void => {
         const isActivesAirports : Array<any> = [];
+        const who = filteredFlights ? filteredFlights : activeFlights;
+        let countrys : Array<any> = [];
 
         if (!activeFlights || activeFlights.length === 0)
             return;
 
 
         airports.forEach((airport : any) => {
-            activeFlights.forEach((flight : any) => {
+            who.forEach((flight : any) => {
                 const depLat = parseFloat(flight.departure[0].laltitude_decimal_degress);
                 const depLng = parseFloat(flight.departure[0].longitude_decimal_degress);
                 const destLat = parseFloat(flight.destination[0].laltitude_decimal_degress);
@@ -105,8 +111,20 @@ export const Map : FunctionComponent<IMap> = memo(({ airports }) => {
                 }
             });
         });
+
+        isActivesAirports.forEach((airport, idx) => {
+            let push = true;
+            countrys.forEach((country) => {
+                if (country?.label === airport.country) {
+                    push = false;
+                }
+            });
+            if (push)
+                countrys.push({ label : airport.country, value : airport.country });
+        });
         setActiveAirports(isActivesAirports);
-    }, [activeFlights]);
+        setCountryOptions(countrys);
+    }, [activeFlights, filteredFlights]);
 
     const isRenderingAirportMarker = useCallback((airport : IAirport) : boolean => {
         let needRender = false;
@@ -169,6 +187,7 @@ export const Map : FunctionComponent<IMap> = memo(({ airports }) => {
     const callbackTimeLine = useCallback((str1 : string, str2 : string) => {
         resetPolys();
         handleTimeLine(str1, str2);
+        setSaveTimeline({ str1 : str1, str2 : str2 });
     }, [resetPolys, handleTimeLine]);
 
     const renderFlightsMarker = useMemo(() => {
@@ -192,6 +211,54 @@ export const Map : FunctionComponent<IMap> = memo(({ airports }) => {
         });
     }, [activeFlights, handleModalIsOpenFlight]);
 
+    const renderFlightsMarkerFiltered = useMemo(() => {
+        if (!filteredFlights?.map)
+            return;
+        return filteredFlights.map((flight : any, idx : number) => {
+            const center : any = getCenter([{
+                latitude : parseFloat(flight.departure[0].laltitude_decimal_degress),
+                longitude : parseFloat(flight.departure[0].longitude_decimal_degress)
+            }, {
+                latitude : parseFloat(flight.destination[0].laltitude_decimal_degress),
+                longitude : parseFloat(flight.destination[0].longitude_decimal_degress)
+            }]);
+            return (
+                <FlightMarker
+                    key={ JSON.stringify(flight) }
+                    flight={ flight }
+                    handleModalIsOpen={ handleModalIsOpenFlight }
+                    lat={ center?.latitude }
+                    lng={ center?.longitude }/>);
+        });
+    }, [filteredFlights, handleModalIsOpenFlight]);
+
+    const handleSelect = useCallback((options : any) => {
+        if (options.length === 0) {
+            setfilteredFlights(null);
+            resetPolys();
+            callbackTimeLine(saveTimeline.str1, saveTimeline.str2);
+            return;
+        }
+        const filteredFlights : Array<any> = [];
+        resetPolys();
+        activeFlights.forEach((flight : any) => {
+            options.forEach((option : any) => {
+                if (option.value === flight.departure[0].country || option.value === flight.destination[0].country)
+                    filteredFlights.push(flight);
+            });
+        });
+        filteredFlights.forEach((flight) => {
+            createFlightPaths({
+                lat : parseFloat(flight.departure[0].laltitude_decimal_degress),
+                lng : parseFloat(flight.departure[0].longitude_decimal_degress)
+            }, {
+                lat : parseFloat(flight.destination[0].laltitude_decimal_degress),
+                lng : parseFloat(flight.destination[0].longitude_decimal_degress)
+            });
+        });
+        setfilteredFlights(filteredFlights);
+    }, [activeFlights, createFlightPaths, resetPolys, callbackTimeLine, saveTimeline]);
+
     useEffect(() => {
         checkActivesFlights(airports);
     }, [activeFlights, airports, checkActivesFlights]);
@@ -212,12 +279,17 @@ export const Map : FunctionComponent<IMap> = memo(({ airports }) => {
                 onGoogleApiLoaded={ ({ map, maps }) => handleMapLoad(map, maps) }
             >
                 { renderAirports }
-                { renderFlightsMarker }
+                { filteredFlights ? renderFlightsMarkerFiltered : renderFlightsMarker }
             </GoogleMapReact>
             <AirportModal isVisible={ modalIsOpen && activeAirport } onClose={ handleModalCloseAirport }
                           airport={ activeAirport }/>
-            <FlightModal isVisible={ modalIsOpen && activeFlight} onClose={ handleModalCloseFlight } flight={activeFlight}/>
+            <FlightModal isVisible={ modalIsOpen && activeFlight } onClose={ handleModalCloseFlight }
+                         flight={ activeFlight }/>
             <TimeLine callback={ callbackTimeLine }/>
+            <div style={ { alignSelf: 'center', display: 'flex', justifyContent: 'center', paddingTop: 10, paddingBottom: 10 } }>
+                <Select onChange={ handleSelect } isMulti options={ countryOptions }
+                        placeholder={ 'All countries by default' }/>
+            </div>
         </div>
     );
 });
